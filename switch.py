@@ -1,3 +1,5 @@
+import os
+import sys
 from enum import Enum
 
 from pydub import AudioSegment
@@ -31,4 +33,10 @@ class Switch(object):
         self.name = self.type.name
 
     def getsound(self):
-        return AudioSegment.from_mp3(SWITCH_SOUND[self.name])
+        try:
+            audio_segment = AudioSegment.from_mp3(SWITCH_SOUND[self.name])
+        except FileNotFoundError:
+            os.chdir(sys._MEIPASS)
+            audio_segment = AudioSegment.from_mp3(SWITCH_SOUND[self.name])
+
+        return audio_segment

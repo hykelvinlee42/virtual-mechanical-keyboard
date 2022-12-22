@@ -2,3 +2,4 @@ pynput
 pydub
 simpleaudio
 inquirerpy==0.3.4
+pyinstaller
