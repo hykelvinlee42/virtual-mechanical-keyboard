@@ -27,7 +27,8 @@ SWITCH_SOUND = {
 
 class Switch(object):
     def __init__(self, switch_type=Switch_Type.GX_BLUE):
-        self.switch_type = switch_type
+        self.type = switch_type
+        self.name = self.type.name
 
     def getsound(self):
-        return AudioSegment.from_mp3(SWITCH_SOUND[self.switch_type.name])
+        return AudioSegment.from_mp3(SWITCH_SOUND[self.name])

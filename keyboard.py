@@ -22,6 +22,7 @@ def on_release(key):
     if key == keyboard.Key.esc:  # stop listener
         return False
 
+
 def get_switch_type():
     switch_type = Switch_Type.GX_BLUE
     input_options = prompt([
@@ -35,6 +36,7 @@ def get_switch_type():
 
     switch_type = Switch_Type[input_options.get("type")]
     return switch_type
+
 
 def main():
     global sound
