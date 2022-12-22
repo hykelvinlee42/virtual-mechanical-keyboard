@@ -45,7 +45,7 @@ jobs:
           - os: ubuntu-latest
             TARGET: ubuntu
             CMD_BUILD: >
-              pyinstaller --onefile --hidden-import=pynput.keyboard._xorg --hidden-import=pynput.mouse._xorg --add-data="sound;sound" keyboard.py &&
+              pyinstaller --onefile --hidden-import=pynput.keyboard._xorg --hidden-import=pynput.mouse._xorg --add-data="sound:sound" keyboard.py &&
               cd dist/ &&
               zip vmk-linux.zip keyboard
             OUT_FILE_NAME: vmk-linux.zip
