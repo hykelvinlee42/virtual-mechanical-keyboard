@@ -1,3 +1,6 @@
+import sys
+import termios
+
 from InquirerPy import inquirer, prompt
 from pydub.playback import _play_with_simpleaudio as play
 from pynput import keyboard
@@ -38,6 +41,10 @@ def get_switch_type():
     return switch_type
 
 
+def stdin_flush():
+    termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+
+
 def main():
     global sound
     switch_type = get_switch_type()
@@ -45,6 +52,9 @@ def main():
     sound = switch.getsound()
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
+    
+    termios.tcflush(sys.stdin, termios.TCIOFLUSH)
+    stdin_flush()
 
 
 if __name__ == "__main__":
