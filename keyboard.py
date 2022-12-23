@@ -23,6 +23,7 @@ def on_press_debug(key):
 
 def on_release(key):
     if key == keyboard.Key.esc:  # stop listener
+        on_press(key)  # play switch sound for one last time
         return False
 
 
