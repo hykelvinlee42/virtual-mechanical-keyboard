@@ -28,7 +28,7 @@ def on_release(key):
 
 
 def get_switch_type():
-    switch_type = Switch_Type.GX_BLUE
+    switch_type = Switch_Type.LOGITECHG_GX_BLUE
     input_options = prompt([
         {
             "type": "list",
